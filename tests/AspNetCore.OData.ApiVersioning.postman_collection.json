@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "1d7985f5-0108-4b36-a3ba-154d6828d2d3",
+		"name": "AspNetCore.OData.ApiVersioning",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get V1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5048/sample/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5048",
+							"path": [
+								"sample",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get V2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5048/sample/v2/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5048",
+							"path": [
+								"sample",
+								"v2",
+								"users"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "id, lastName",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": "organization",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get V3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5048/sample/v3/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5048",
+							"path": [
+								"sample",
+								"v3",
+								"users"
+							],
+							"query": [
+								{
+									"key": "$select",
+									"value": "id, enabled, roles",
+									"disabled": true
+								},
+								{
+									"key": "$expand",
+									"value": "organization, identity",
+									"disabled": true
+								},
+								{
+									"key": "$filter",
+									"value": "organizationId eq acc7952e-9255-14f6-e38b-0a3652019484",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "Get V1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5048/sample/v1/organizations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5048",
+							"path": [
+								"sample",
+								"v1",
+								"organizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get V2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5048/sample/v2/organizations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5048",
+							"path": [
+								"sample",
+								"v2",
+								"organizations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "OData Model Metadata",
+			"item": [
+				{
+					"name": "Get V1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5048/sample/v1/$metadata",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5048",
+							"path": [
+								"sample",
+								"v1",
+								"$metadata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get V2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5048/sample/v2/$metadata",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5048",
+							"path": [
+								"sample",
+								"v2",
+								"$metadata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get V3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5048/sample/v3/$metadata",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5048",
+							"path": [
+								"sample",
+								"v3",
+								"$metadata"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

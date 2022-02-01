@@ -1,0 +1,3 @@
+[submodule "src/AspNetCoreOData"]
+	path = src/AspNetCoreOData
+	url = https://github.com/OData/AspNetCoreOData.git
