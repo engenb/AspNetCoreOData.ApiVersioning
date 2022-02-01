@@ -7,8 +7,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper.AspNetCore.OData.EFCore" Version="2.2.2" />
-		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+		<PackageReference Include="AutoMapper.AspNetCore.OData.EFCore" Version="3.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
 		<PackageReference Include="Bogus" Version="34.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.1" />
@@ -21,10 +21,15 @@
 		<PackageReference Include="Serilog.Enrichers.AspnetcoreHttpcontext" Version="1.1.0" />
 		<PackageReference Include="Serilog.Exceptions" Version="8.0.0" />
 		<PackageReference Include="Serilog.Sinks.Seq" Version="5.1.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\AspNetCore.OData.ApiVersioning\AspNetCore.OData.ApiVersioning.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Infrastructure\Swagger\" />
 	</ItemGroup>
 
 </Project>

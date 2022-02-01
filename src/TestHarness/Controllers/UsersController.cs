@@ -66,7 +66,7 @@ public class UsersController : ControllerBase
 
     [EnableQuery]
     [ApiVersion("3")]
-    [HttpGet("~/sample/v3/Users")]
+    [HttpGet("Users")]
     [ProducesResponseType(typeof(IEnumerable<Model.V3.User>), Status200OK)]
     public async Task<IActionResult> GetV3(ODataQueryOptions<Model.V3.User> queryOptions)
     {

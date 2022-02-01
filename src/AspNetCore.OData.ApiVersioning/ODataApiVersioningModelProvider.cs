@@ -123,7 +123,7 @@ public class ODataApiVersioningModelProvider : IODataControllerActionConvention
                 prefixes,
                 out var newRouteTemplate);
 
-            if (prefix == null) return;
+            if (prefix == null) continue;
 
             var model = context.Options.RouteComponents[prefix].EdmModel;
             var sp = context.Options.RouteComponents[prefix].ServiceProvider;
@@ -147,6 +147,8 @@ public class ODataApiVersioningModelProvider : IODataControllerActionConvention
                 }
 
                 selectors.Add(newSelectorModel);
+
+                break;
             }
         }
     }

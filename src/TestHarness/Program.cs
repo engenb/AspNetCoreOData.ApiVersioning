@@ -46,6 +46,7 @@ builder.Host.ConfigureServices((ctx, services) =>
         .AddRouting()
         .AddApiVersioning() // see ApiVersioningConfigurator
         .AddVersionedApiExplorer() // see ApiExplorerConfigurator
+        .AddSwaggerGen()
         .AddControllers()
         .AddOData() // see ODataConfigurator
         .AddODataApiVersioning();
@@ -61,6 +62,8 @@ app
     .UseEndpoints(endpoints =>
     {
         endpoints.MapControllers();
-    });
+    })
+    .UseSwagger()
+    .UseSwaggerUI();
 
 app.Run();

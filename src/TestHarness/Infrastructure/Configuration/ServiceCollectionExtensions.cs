@@ -6,5 +6,6 @@ public static class ServiceCollectionExtensions
         services
             .ConfigureOptions<ApiExplorerConfigurator>()
             .ConfigureOptions<ApiVersioningConfigurator>()
-            .ConfigureOptions<ODataConfigurator>();
+            .ConfigureOptions<ODataConfigurator>()
+            .ConfigureOptions<SwaggerConfigurator>();
 }
