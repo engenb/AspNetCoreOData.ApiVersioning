@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.OData"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OData8", "OData8", "{D8A49E9C-4FD5-4F83-AF3E-0FD8A5CC3D9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore.OData.ApiVersioning.ApiExplorer", "AspNetCore.OData.ApiVersioning.ApiExplorer\AspNetCore.OData.ApiVersioning.ApiExplorer.csproj", "{BC01EE49-8971-4911-88BE-406470071B7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{45E08DFA-26AF-45B9-94EF-63B57B19C140}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E08DFA-26AF-45B9-94EF-63B57B19C140}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45E08DFA-26AF-45B9-94EF-63B57B19C140}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC01EE49-8971-4911-88BE-406470071B7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC01EE49-8971-4911-88BE-406470071B7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC01EE49-8971-4911-88BE-406470071B7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC01EE49-8971-4911-88BE-406470071B7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

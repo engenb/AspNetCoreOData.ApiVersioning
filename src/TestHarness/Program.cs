@@ -1,4 +1,5 @@
 using System.Reflection;
+using AspNetCore.OData.ApiVersioning.ApiExplorer.DependencyInjection;
 using AspNetCore.OData.ApiVersioning.DependencyInjection;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
@@ -49,7 +50,9 @@ builder.Host.ConfigureServices((ctx, services) =>
         .AddSwaggerGen()
         .AddControllers()
         .AddOData() // see ODataConfigurator
-        .AddODataApiVersioning();
+        .AddODataApiVersioning()
+        .AddODataApiVersioningApiExplorer()
+        ;
 });
 
 var app = builder.Build();

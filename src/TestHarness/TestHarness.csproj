@@ -25,6 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\AspNetCore.OData.ApiVersioning.ApiExplorer\AspNetCore.OData.ApiVersioning.ApiExplorer.csproj" />
 		<ProjectReference Include="..\AspNetCore.OData.ApiVersioning\AspNetCore.OData.ApiVersioning.csproj" />
 	</ItemGroup>
 

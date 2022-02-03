@@ -14,11 +14,8 @@ using Microsoft.OData.Edm;
 
 namespace AspNetCore.OData.ApiVersioning;
 
-public class ODataApiVersioningModelProvider : IODataControllerActionConvention
+public class ODataApiVersioningModelConvention : AttributeRoutingConvention
 {
-    // run immediately after OData AttributeRoutingConvention
-    public int Order => -99;
-
     private ApiVersioningOptions ApiVersioningOptions => _apiVersioningOptions.Value;
     private readonly IOptions<ApiVersioningOptions> _apiVersioningOptions;
     private readonly IODataPathTemplateParser _templateParser;
@@ -26,23 +23,21 @@ public class ODataApiVersioningModelProvider : IODataControllerActionConvention
 
     private readonly Regex _apiVersionPattern;
 
-    public ODataApiVersioningModelProvider(
+    public ODataApiVersioningModelConvention(
         IODataPathTemplateParser templateParser,
         IOptions<ApiVersioningOptions> apiVersioningOptions,
-        ILogger<ODataApiVersioningModelProvider> logger)
+        ILoggerFactory loggerFactory):
+        base(loggerFactory.CreateLogger<AttributeRoutingConvention>(), templateParser)
     {
         _templateParser = templateParser;
         _apiVersioningOptions = apiVersioningOptions;
-        _logger = logger;
+        _logger = loggerFactory.CreateLogger<ODataApiVersioningModelConvention>();
 
         _apiVersionPattern = new Regex($"(^.*)({{.*:{ApiVersioningOptions.RouteConstraintName}}})(.*$)");
     }
 
     /// <inheritdoc />
-    public virtual bool AppliesToController(ODataControllerActionContext context) => true;
-
-    /// <inheritdoc />
-    public virtual bool AppliesToAction(ODataControllerActionContext context)
+    public override bool AppliesToAction(ODataControllerActionContext context)
     {
         if (context == null) throw new ArgumentNullException(nameof(context));
 

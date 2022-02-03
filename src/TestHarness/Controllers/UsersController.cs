@@ -48,7 +48,7 @@ public class UsersController : ControllerBase
     [ApiVersion("2")]
     [HttpGet("Users")]
     [ProducesResponseType(typeof(IEnumerable<Model.V2.User>), Status200OK)]
-    public async Task<IActionResult> GetV1(ODataQueryOptions<Model.V2.User> queryOptions)
+    public async Task<IActionResult> GetV2(ODataQueryOptions<Model.V2.User> queryOptions)
     {
         var query = DbContext.Users.AsNoTracking();
 

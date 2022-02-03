@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.OData;
+using Microsoft.AspNetCore.OData.Routing.Conventions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
 
 namespace AspNetCore.OData.ApiVersioning.DependencyInjection
 {
@@ -15,10 +15,20 @@ namespace AspNetCore.OData.ApiVersioning.DependencyInjection
 
         public static IServiceCollection AddODataApiVersioning(this IServiceCollection services)
         {
-            services.TryAddSingleton<ODataApiVersioningModelProvider>();
+            services.TryAddSingleton<ODataApiVersioningModelConvention>();
 
             services.AddOptions<ODataOptions>()
-                .Configure<ODataApiVersioningModelProvider>((opts, provider) => opts.Conventions.Add(provider));
+                .PostConfigure<ODataApiVersioningModelConvention>((opts, convention) =>
+                {
+                    var attributeRoutingConventions = opts.Conventions.OfType<AttributeRoutingConvention>().ToArray();
+
+                    foreach (var attributeRoutingConvention in attributeRoutingConventions)
+                    {
+                        opts.Conventions.Remove(attributeRoutingConvention);
+                    }
+
+                    opts.Conventions.Add(convention);
+                });
 
             return services;
         }
